@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+
+</style>
+<head>
+  <title>Feature Descriptions</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./static/images/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+    function find_text(){
+    var text = document.getElementById("Search").value;
+    console.log(text);
+    find(text);}
+  </script>
+
+  <style>
+    .card{
+      border:1px solid #0068d0;
+      border-radius: 1em;
+    }
+    html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #e3f2fd;">
+    <!-- Brand/logo -->
+    <ul class="navbar-nav mr-auto">
+     <li><a class="navbar-brand" href="/"><img src="./static/images/logo.png" alt="Logo" style="height:40px;"></a></li>
+    </ul>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="/">Stimulate Attack</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/analysis">Analysis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Feature Descriptions</a>
+      </li>
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" id="Search">
+    </form>
+    <button class="btn btn-outline-success" onclick="find_text()">Search</button>
+    </ul>
+  </nav>
+
+    <br/><br/><br/><br/>
+    <h4 style="margin-left:40px;">NSL - KDD IDS Sample Dataset</h4>
+<div class="container" style="margin-left:20px;margin-right:20px;overflow-x: scroll;">
+      <table class="table">
+        <thead>
+        <tr>
+            <th scope="row">0</th>
+            <th>Duration</th>
+            <th>Protocol Type</th>
+            <th>Service</th>
+            <th>Flag</th>
+            <th>Src Bytes</th>
+            <th>Dst Bytes</th>
+            <th>Land</th>
+            <th>Wrong Fragment</th>
+            <th>Urgent</th>
+            <th>Hot</th>
+            <th>Num Failed Logins</th>
+            <th>Logged In</th>
+            <th>Num Compromised</th>
+            <th>Root Shell</th>
+            <th>Su Attempted</th>
+            <th>Num Root</th>
+            <th>Num File Creations</th>
+            <th>Num Shells</th>
+            <th>Num Access Files</th>
+            <th>Num Outbound Cmds</th>
+            <th>Is Hot Logins</th>
+            <th>Is Guest Login</th>
+            <th>Count</th>
+            <th>Srv Count</th>
+            <th>Serror Rate</th>
+            <th>Srv Serror Rate</th>
+            <th>Rerror Rate</th>
+            <th>Srv Rerror Rate</th>
+            <th>Same Srv Rate</th>
+            <th>Label</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+    <tr>
+      <th scope="row">0</th>
+      <td>tcp</td>
+      <td>ftp_data</td>
+      <td>SF</td>
+        <td>491</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>2</td>
+      <td>2</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>1</td>
+      <td>0</td>
+        <td>0</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>udp</td>
+      <td>other</td>
+      <td>SF</td>
+        <td>146</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+        <td>0</td>
+
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>13</td>
+      <td>123</td>
+        <td>6</td>
+      <td>1</td>
+      <td>1</td>
+        <td>0</td>
+      <td>1</td>
+      <td>0</td>
+        <td>0</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>tcp</td>
+      <td>private</td>
+      <td>S0</td>
+        <td>0</td>
+      <td>232</td>
+      <td>199</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+      <td>0</td>
+        <td>0</td>
+      <td>5</td>
+      <td>5</td>
+        <td>0.2</td>
+      <td>0.2</td>
+      <td>0</td>
+        <td>0</td>
+      <td>1</td>
+      <td>0</td>
+        <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+      </table>
+</div>
+
+
+<div class="container">
+
+<br /><br />
+      <div class="row">
+          <div class="col-3">
+              <h3>Features</h3>
+                <br/>
+              <a href="#duration_">Duration</a>
+              <hr>
+              <a href="#protocolType_">Protocol Type</a>
+              <hr>
+              <a href="#service_">Service</a>
+              <hr>
+              <a href="#flag_">Flag</a>
+              <hr>
+              <a href="#srcBytes_">Src Bytes</a>
+              <hr>
+              <a href="#dstBytes_">Dst Bytes</a>
+              <hr>
+              <a href="#land_">Land</a>
+              <hr>
+              <a href="#wrongFragment_">Wrong Fragment</a>
+              <hr>
+              <a href="#urgent_">Urgent</a>
+              <hr>
+              <a href="#hot_">Hot</a>
+              <hr>
+
+
+
+              <a href="#NumFailedLogins_">Num Failed Logins</a>
+              <hr>
+              <a href="#LoggedIn_">Logged In</a>
+              <hr>
+              <a href="#NumCompromised_">Num Compromised</a>
+              <hr>
+              <a href="#RootShell_">Root Shell</a>
+              <hr>
+              <a href="#SuAttempted_">Su Attempted</a>
+              <hr>
+              <a href="#NumRoot_">Num Root</a>
+              <hr>
+              <a href="#NumFileCreations_">Num File Creations</a>
+              <hr>
+              <a href="#NumShells_">Num Shells</a>
+              <hr>
+              <a href="#NumAccessFiles_">Num Access Files</a>
+              <hr>
+              <a href="#NumOutboundCmds_">Num Outbound Cmds</a>
+              <hr>
+
+              <a href="#IsHotLogins_">Is Hot Logins</a>
+              <hr>
+              <a href="#IsGuestLogin_">Is Guest Login</a>
+              <hr>
+              <a href="#Count_">Count</a>
+              <hr>
+              <a href="#SrvCount_">Srv Count</a>
+              <hr>
+              <a href="#SerrorRate_">Serror Rate</a>
+              <hr>
+              <a href="#SrvSerrorRate_">Srv Serror Rate</a>
+              <hr>
+              <a href="#RerrorRate_">Rerror Rate</a>
+              <hr>
+              <a href="#SrvRerrorRate_">Srv Rerror Rate</a>
+              <hr>
+              <a href="#SameSrvRate_">Same Srv Rate</a>
+              <hr>
+              <a href="#DiffSrvRate_">Diff Srv Rate</a>
+              <hr>
+
+
+
+              <a href="#SrvDiffHostRate_">Srv Diff Host Rate</a>
+              <hr>
+              <a href="#DstHostCount_">Dst Host Count</a>
+              <hr>
+              <a href="#DstHostSrvCount_">Dst Host Srv Count</a>
+              <hr>
+              <a href="#DstHostSameSrvRate_">Dst Host Same Srv Rate</a>
+              <hr>
+              <a href="#DstHostDiffSrvRate_">Dst Host Diff Srv Rate</a>
+              <hr>
+              <a href="#DstHostSameSrcPortRate_">Dst Host Same Src Port Rate</a>
+              <hr>
+              <a href="#NumFileCreations_">Num File Creations</a>
+              <hr>
+              <a href="#DstHostSrvDiffHostRate_">Dst Host Srv Diff Host Rate</a>
+              <hr>
+              <a href="#DstHostSerrorRate_">Dst Host Serror Rate</a>
+              <hr>
+              <a href="#DstHostSrvSerrorRate_">Dst Host Srv Serror Rate</a>
+              <hr>
+
+              <a href="#DstHostRerrorRate_">Dst Host Rerror Rate</a>
+              <hr>
+              <a href="#DstHostSrvRerrorRate_">Dst Host Srv Rerror Rate</a>
+              <hr>
+              <a href="#Label_">Label</a>
+              <hr>
+              <a href="#Score_">Score</a>
+              <hr>
+
+
+          </div>
+          <div class="col-9">
+                <h3>Feature Description</h3>
+              <br/>
+              <div class="card">
+            <div class="card-body" id="duration_">
+              <h4>Duration</h4>
+              <p><b>Description:</b> Length of time duration of the connection<br><br>
+              <b>Type:</b> Continuous<br>
+              <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 54451</p>
+            </div>
+        </div>
+        <br>
+
+      <div class="card" id="protocolType_">
+        <div class="card-body">
+          <h4>Protocol Type</h4>
+          <p><b>Description:</b> Protocol used in the connection<br><br>
+          <b>Type:</b> Categorical<br>
+          <b>Value Type:</b> String<br>
+        </div>
+      </div>
+      <br/>
+
+      <div class="card" id="service_">
+        <div class="card-body">
+          <h4>Service</h4>
+          <p><b>Description:</b> Destination networ service used<br><br>
+          <b>Type:</b> Categorical<br>
+          <b>Value Type:</b> String<br/>
+        </div>
+        </div>
+        <br>
+
+      <div class="card" id="flag_">
+        <div class="card-body">
+          <h4>Flag</h4>
+          <p><b>Description:</b> Status of the connection - Normal or Error<br><br>
+          <b>Type:</b> Categorical<br>
+          <b>Value Type:</b> String<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="srcBytes_">
+        <div class="card-body">
+          <h4>Src Bytes</h4>
+          <p><b>Description:</b> Number of data bytes transferred from source to destination in single connection<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+          <b>Range:</b> 0 - 1379963888</p>
+        </div>
+        </div>
+        <br>
+
+      <div class="card" id="dstBytes_">
+        <div class="card-body">
+          <h4>Dst Bytes</h4>
+          <p><b>Description:</b> Number of data bytes transferred from source to destination in single connection<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+          <b>Range:</b> 0 - 309937401</p>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="land_">
+        <div class="card-body">
+          <h4>Land</h4>
+          <p><b>Description:</b> If source and destination IP addresses and port numbers are equal then, this variable takes value 1 else 0<br><br>
+          <b>Type:</b> Binary<br>
+          <b>Value Type:</b> Integers<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="wrongFragment_">
+        <div class="card-body">
+          <h4>Wrong Fragment</h4>
+          <p><b>Description:</b> Total number of wrong fragments in this connection<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="urgent_">
+        <div class="card-body">
+          <h4>Urgent</h4>
+          <p><b>Description:</b> Number of urgent packtes in this connection. Urgent packets are packets with the urgent bit activated<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="hot_">
+        <div class="card-body">
+          <h4>Hot</h4>
+          <p><b>Description:</b> Number of "hot" indicators inn this content such as: entering a system directory, creating programs and executing programs<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 101<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumFailedLogins_">
+        <div class="card-body">
+          <h4>Num Failed Logins</h4>
+          <p><b>Description:</b> Count of failed login attempts<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+          <b>Range:</b> 0 - 4</p>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="LoggedIn_">
+        <div class="card-body">
+          <h4>Logged In</h4>
+          <p><b>Description:</b> Login Status : 1 if successfully logged in else 0<br><br>
+          <b>Type:</b> Binary<br>
+          <b>Value Type:</b> Integers<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumCompromised_">
+        <div class="card-body">
+          <h4>Num Compromised</h4>
+          <p><b>Description:</b> Number of "compromised" conditions<br><br>
+          <b>Type:</b> Continous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 7479<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="RootShell_">
+        <div class="card-body">
+          <h4>Root Shell</h4>
+          <p><b>Description:</b> 1 if root shell is obtained else 0<br><br>
+          <b>Type:</b> Binary<br>
+          <b>Value Type:</b> Integers<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SuAttempted_">
+        <div class="card-body">
+          <h4>Su Attempted</h4>
+          <p><b>Description:</b> 1 if "su root" command attempted or used else 0<br><br>
+          <b>Type:</b> Discrete (Dataset contains '2' value<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 2<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumRoot_">
+        <div class="card-body">
+          <h4>Num Root</h4>
+          <p><b>Description:</b> Number of "root" accesses or number of operatins performed as a root in the connection<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 7468<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumFileCreations_">
+        <div class="card-body">
+          <h4>Num File Creations</h4>
+          <p><b>Description:</b> Number of file creation operations in the connection<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 100<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumShells_">
+        <div class="card-body">
+          <h4>Num Shells</h4>
+          <p><b>Description:</b> Number of shell prompts<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 2<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumAccessFiles_">
+        <div class="card-body">
+          <h4>Num Access Files</h4>
+          <p><b>Description:</b> Number of operations on access control files<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 9<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="NumOutboundCmds_">
+        <div class="card-body">
+          <h4>Num Outbound Cmds</h4>
+          <p><b>Description:</b> Number of outbound commands in an ftp session<br><br>
+          <b>Type:</b> Continuous<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="IsHotLogins_">
+        <div class="card-body">
+          <h4>Is hot Logins</h4>
+          <p><b>Description:</b> 1 if the login belongs to the "hot" list i.e., root or admin else 0<br><br>
+          <b>Type:</b> Binary<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="IsGuestLogin_">
+        <div class="card-body">
+          <h4>Is Guest Login</h4>
+          <p><b>Description:</b> 1 if the login is a "guest" login; else 0<br><br>
+          <b>Type:</b> Binary<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="Count_">
+        <div class="card-body">
+          <h4>Count</h4>
+          <p><b>Description:</b> Number of connections to the same destination host as the current connection in the past two seconds<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 511<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SrvCount_">
+        <div class="card-body">
+          <h4>Srv Count</h4>
+          <p><b>Description:</b> Number of connections to the same service (port number) as the current connection in the past two seconds<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 511<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SerrorRate_">
+        <div class="card-body">
+          <h4>Serror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) s0, s1, s2 or s3, among the connections aggregated in count(23)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SrvSerrorRate_">
+        <div class="card-body">
+          <h4>Srv Serror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) s0, s1, s2 or s3, among the connections aggregated in srv_count (24)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="RerrorRate_">
+        <div class="card-body">
+          <h4>Rerror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) REJ, among the connections aggregated in count (23)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SrvRerrorRate_">
+        <div class="card-body">
+          <h4>Srv Rerror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) REJ, among the connections aggregated in srv_count (24)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SameSrvRate_">
+        <div class="card-body">
+          <h4>Same Srv Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to the same service, among the connections aggregated in count (23)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DiffSrvRate_">
+        <div class="card-body">
+          <h4>Diff Srv Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to different services, among the connections aggregated in count (23)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="SrvDiffHostRate_">
+        <div class="card-body">
+          <h4>Srv Diff Host Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to different destination machines among the connections aggregated in srv_count (24)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of decimal<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostCount_">
+        <div class="card-body">
+          <h4>Dst Host Count</h4>
+          <p><b>Description:</b> Number of connections having the same destination host IP address<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 255<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSrvCount_">
+        <div class="card-body">
+          <h4>Dst Host Srv Count</h4>
+          <p><b>Description:</b> Number of connections having the same port number<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 255<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSameSrvRate_">
+        <div class="card-body">
+          <h4>Dst Host Same Srv Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to different services, among the connections aggregated in dst_host_count (32)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostDiffSrvRate_">
+        <div class="card-body">
+          <h4>Dst Host Diff Srv Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to different services, among the connections aggregated in dst_host_count (32)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSameSrcPortRate_">
+        <div class="card-body">
+          <h4>Dst Host Same Src Port Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to the same source port, among the connections aggregated in dst_host_srv_count (33)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+
+      <div class="card" id="NumFileCreations__">
+        <div class="card-body">
+          <h4>Dst Host Srv Diff Host Rate</h4>
+          <p><b>Description:</b> The percentage of connections that were to different destination machines, among the connections aggregated in dst_host_srv_count (33)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSrvDiffHostRate_">
+        <div class="card-body">
+          <h4>Dst Host Serror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) s0, s1, s2 or s3, among the connections aggregated in dst_host_count (32)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSrvSerrorRate_">
+        <div class="card-body">
+          <h4>Dst Host Srv Serror Rate</h4>
+          <p><b>Description:</b> The percent of connections that have activated the flag (4) s0, s1, s2 or s3, among the connections aggregated in dst_host_srv_count (33)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostRerrorRate_">
+        <div class="card-body">
+          <h4>Dst Host Rerror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) REJ, among the connections aggregated in dst_host_count (32)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="DstHostSrvRerrorRate_">
+        <div class="card-body">
+          <h4>Dst Host Srv Rerror Rate</h4>
+          <p><b>Description:</b> The percentage of connections that have activated the flag (4) REJ, among the connections aggregated in dst_host_srv_count (33)<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Floats (hundredths of a decimal)<br>
+              <b>Range:</b> 0 - 1<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="Label_">
+        <div class="card-body">
+          <h4>Label</h4>
+          <p><b>Description:</b> Classification of the traffic input<br><br>
+          <b>Type:</b> Categorical<br>
+          <b>Value Type:</b> Strings<br>
+        </div>
+    </div>
+    <br>
+
+      <div class="card" id="Score_">
+        <div class="card-body">
+          <h4>Score</h4>
+          <p><b>Description:</b> Difficulty level<br><br>
+          <b>Type:</b> Discrete<br>
+          <b>Value Type:</b> Integers<br>
+              <b>Range:</b> 0 - 21<br>
+        </div>
+    </div>
+    <br>
+
+
+          </div>
+      </div>
+
+  </div>
+</body>
+</html>

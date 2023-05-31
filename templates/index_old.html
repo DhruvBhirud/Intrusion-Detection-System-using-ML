@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IDS with ML</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./static/images/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+    function find_text(){
+    var text = document.getElementById("Search").value;
+    console.log(text);
+    find(text);}
+
+    function choose_traffic(traffic){
+    // alert(traffic);
+    document.getElementById("choose_traffic_form").innerHTML = traffic;
+    document.getElementById("traffic_type").value = traffic;}
+
+    function submit_form(){
+      confirm("submit?");
+    // var traffic = document.getElementById("traffic_type").value;
+    document.getElementById("myform").submit();}
+  </script>
+
+  <style>
+    .form-control{
+      border:1px solid #0068d0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #e3f2fd;">
+      <!-- Brand/logo -->
+      <ul class="navbar-nav mr-auto">
+       <li><a class="navbar-brand" href="/"><img src="./static/images/logo.png" alt="Logo" style="height:40px;"></a></li>
+      </ul>
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-right">
+        <li class="nav-item">
+          <a class="nav-link" href="/analysis">Preliminary Data Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/model">Model Comparison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/features">Feature Descriptions</a>
+        </li>
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" id="Search">
+        </form>
+        <button class="btn btn-outline-success" onclick="find_text()">Search</button>
+      </ul>
+    </nav>
+
+    <br><br><br><br>
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+
+      <!-- Links -->
+        <ul class="navbar-nav" style="margin-left: 25%;font-size: larger">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Stimulate an input traffic by filling</a>
+          </li>
+          <form class="form-inline" id="myform" action="/submit" method="POST">
+            <input class="form-control mr-sm-2" type="text" id="traffic_type" name="traffic_type" style="display:none;">
+          </form>
+          <form class="form-inline">
+            <div class="dropdown show">
+              <a class="btn btn-info dropdown-toggle" href="#" role="button" id="choose_traffic_form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:150px;">
+                Select
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" onclick="choose_traffic('DoS');">Denial of Service (DoS)</a>
+                <a class="dropdown-item" onclick="choose_traffic('Probe');">Probe</a>
+                <a class="dropdown-item" onclick="choose_traffic('U2R');">User to Root(U2R)</a>
+                <a class="dropdown-item" onclick="choose_traffic('R2L');">Remote to Local (R2L)</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" onclick="choose_traffic('Normal');">Normal traffic</a>
+              </div>
+            </div>
+          </form>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Traffic features</a>
+          </li>
+        </ul>
+      </nav>
+
+    <br>
+
+    <!-- Main Form -->
+    <div class="container">
+      <div class="card">
+          <div class="card-body">
+            <form>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Duration</label>
+                  <input type="number" class="form-control" id="Duration" placeholder="Length of time duration of the connection (0 - 54451)">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Protocol Type</label>
+                  <select class="form-control" id="Protocol" required="">
+                    <option disabled="" selected="">Protocol used in the connection</option>
+                    <option>1. TCP</option>
+                    <option>2. UDP</option>
+                    <option>3. ICMP</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Service</label>
+                  <input type="text" class="form-control" id="Service" placeholder="Destination network service used">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Flag</label>
+                  <input type="text" class="form-control" id="Flag" placeholder="Flag Type value type">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Src Bytes</label>
+                  <input type="number" class="form-control" id="srcbytes" placeholder="Number of data bytes transferred from source to dest">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dstn Bytes</label>
+                  <input type="number" class="form-control" id="dstnbytes" placeholder="Number of data bytes transferred from dest to source">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Land</label>
+                  <select class="form-control" id="Protocol" required="">
+                    <option disabled="" selected="">Compare source and destination IP addresses and port numbers</option>
+                    <option>0. If NOT equal</option>
+                    <option>1. If Equal</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Wrong Fragment</label>
+                  <select class="form-control" id="Protocol" required="">
+                    <option disabled="" selected="">Total number of wrong fragments in this connection</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Urgent</label>
+                  <select class="form-control" id="Protocol" required="">
+                    <option disabled="" selected="">Number of urgent packets i.e urgent bit activated</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Hot</label>
+                  <input type="number" class="form-control" id="hot" placeholder="Number of “hot‟ indicators in the content (0-101)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Num Failed Logins</label>
+                  <select class="form-control" id="failed_login" required="">
+                    <option disabled="" selected="">Count of failed login attempts</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Logged In</label>
+                  <select class="form-control" id="login_status" required="">
+                    <option disabled="" selected=""><span  style="color:#ccc">Login Status</span></option>
+                    <option>0. Logged out</option>
+                    <option>1. Logged in</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Num Compromised</label>
+                  <input type="number" class="form-control" id="num_comp" placeholder="Number of 'compromised' conditions (0 - 7479)">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Root Shell</label>
+                  <select class="form-control" id="root_shell" required="">
+                    <option>0. Otherwise</option>
+                    <option>1. If root shell is obtained</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Su Attempted</label>
+                  <select class="form-control" id="su" required="">
+                    <option>0. Otherwise</option>
+                    <option>1. If 'su root' command attempted</option>
+                    <option>2. -</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Num Root</label>
+                  <input type="number" class="form-control" id="num_root" placeholder="Number of 'root' accesses (0 - 7468)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Num File Creations</label>
+                  <input type="number" min="0" max="100" class="form-control" id="num_file" placeholder="Number of file creation operations (0-100)">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Num Shells</label>
+                  <input type="number" min="0" max="2" class="form-control" id="num_shell" placeholder="Number of shell prompts (0-2)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Num Access Files</label>
+                  <input type="number" min="0" max="9" class="form-control" id="id_name" placeholder="Number of operations on access control files (0-9)">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Num Outbound Cmds</label>
+                  <input type="number" class="form-control" id="num_out" placeholder="Number of outbound commands in an ftp session">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Is Hot Logins</label>
+                  <input type="number" min=0 max=1 class="form-control" id="is_hot_login" placeholder="1. If the login belongs to Root or Admin; 0. Otherwise">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Is Guest Login</label>
+                  <input type="number" min=0 max=1 class="form-control" id="is_guest_login" placeholder="1. If the login belongs to Guest; 0. Otherwise">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Same Destn Count</label>
+                  <input type="number" min=0 max=511 class="form-control" id="count" placeholder="Number of connections to the same destination">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Same Port Count</label>
+                  <input type="number"  min=0 max=511 class="form-control" id="srv_count" placeholder="Number of connections to the same service (port number)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Serror Rate</label>
+                  <input type="text" class="form-control" id="serror" placeholder="The percentage of connections that have activated the flag">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Srv Serror Rate</label>
+                  <input type="text" class="form-control" id="srv_serror" placeholder="The percentage of connections that have activated the flag">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Rerror Rate</label>
+                  <input type="text" class="form-control" id="rerror" placeholder="The percentage of connections that have activated the flag">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Srv Rerror Rate</label>
+                  <input type="text" class="form-control" id="srv_rerror" placeholder="The percentage of connections that have activated the flag">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Same Srv Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to the same service">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Diff Srv Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that  were to the different service">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Srv Diff Host Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to different destination machines">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dst Host Count</label>
+                  <input type="number" min=0 max=255 class="form-control" id="id_name" placeholder="Number of connections having the same destination host IP address">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Dst Host Srv Count</label>
+                  <input type="number" min=0 max=255 class="form-control" id="id_name" placeholder="Number of connections having the same port number">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dst Host Same Srv Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to different services">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Dst Host Diff Srv Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to different services">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dst Host Same Src Port Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to the same source port">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Dst Host Srv Diff Host Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that were to different destination machines">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dst Host Serror Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that have activated the flag">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Dst Host Srv Serror Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percent of connections that have activated the flag">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dst Host Rerror Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that have activated the flag">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Dst Host Srv Rerror Rate</label>
+                  <input type="text" class="form-control" id="id_name" placeholder="The percentage of connections that have activated the flag">
+                </div>
+              </div>
+              <br>
+            </form>
+            <div class="form-row" style="margin-left:40%;">
+              <button href="/" class="btn btn-warning">Reset Form</button>
+              <button class="btn btn-success" style="margin-left:20px;" onclick="submit_form()">Submit</button>
+            </div>
+         </div>
+       </div>
+       <br><br>
+    </div>
+
+</body>
+</html>

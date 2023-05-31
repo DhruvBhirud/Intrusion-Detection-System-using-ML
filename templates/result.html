@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+
+</style>
+<head>
+  <title>Result</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./static/images/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+    function find_text(){
+    var text = document.getElementById("Search").value;
+    console.log(text);
+    find(text);}
+  </script>
+
+  <style>
+    .card{
+      border:1px solid #0068d0;
+      border-radius: 1em;
+    }
+  </style>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #e3f2fd;">
+    <!-- Brand/logo -->
+    <ul class="navbar-nav mr-auto">
+     <li><a class="navbar-brand" href="/"><img src="./static/images/logo.png" alt="Logo" style="height:40px;"></a></li>
+    </ul>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="/">Stimulate Attack</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/analysis">Analysis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/features">Feature Descriptions</a>
+      </li>
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" id="Search">
+    </form>
+    <button class="btn btn-outline-success" onclick="find_text()">Search</button>
+    </ul>
+  </nav>
+
+  <br><br><br><br>
+  <h2 style="text-align:center;">Results</h2>
+  <h5 style="text-align:center;">Expected outcome: <span id="exp"></span></h5>
+  <br>
+
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4>Random Forest Model's Prediction:  <span id="result">Not Defined</span></h4>
+          <p>Normal Traffic</p>
+          <div class="progress"  style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="rnd_frst_normal" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div>
+          <p>Dos Attack</p>
+          <div class="progress"  style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="rnd_frst_dos" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div>
+          <p>Remote to Local (R2L) Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="rnd_frst_r2l" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div>
+          <p>User to Root (U2R) Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="rnd_frst_u2r" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div>
+          <p>Probe Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="rnd_frst_probe" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div></div>
+        </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4>Linear SVM Model's Prediction:  <span id="result">Not Defined</span></h4>
+          <p>Normal Traffic</p>
+          <div class="progress"  style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="lsvm_frst_normal" role="progressbar" style="width: 8%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">8%</div></div>
+          <p>Dos Attack</p>
+          <div class="progress"  style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-danger" id="lsvm_frst_dos" role="progressbar" style="width: 67%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">67%</div></div>
+          <p>Remote to Local (R2L) Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="lsvm_frst_r2l" role="progressbar" style="width: 12%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">12%</div></div>
+          <p>User to Root (U2R) Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="lsvm_frst_u2r" role="progressbar" style="width: 3%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">3%</div></div>
+          <p>Probe Attack</p>
+          <div class="progress" style="margin-top:-10px;margin-bottom:10px;"><div class="progress-bar progress-bar-striped bg-warning" id="lsvm_frst_probe" role="progressbar" style="width: 10%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">10%</div></div>
+        </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+          <h4>Autoencoder Model's Prediction</h4>
+          <p>Not yet implemented</p>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script>
+var js = JSON.parse('{{ dict | tojson | safe}}');
+document.getElementById("exp").innerHTML=js["expected"];
+var attacks = ["normal","dos","r2l","u2r","probe"];
+for(var i = 0; i < 5; i++) {
+  document.getElementById("rnd_frst_"+attacks[i]).innerHTML=js[attacks[i]]+"%";
+  document.getElementById("rnd_frst_"+attacks[i]).style.width=js[attacks[i]]+"%";
+}
+
+var res = js["predictions"];
+
+if(res=="normal"){
+  document.getElementById("rnd_frst_"+res).classList.remove('bg-warning');
+  document.getElementById("rnd_frst_"+res).classList.add('bg-success');
+  document.getElementById("result").innerHTML="Normal Traffic";}
+else{
+  document.getElementById("rnd_frst_"+res).classList.remove('bg-warning');
+  document.getElementById("rnd_frst_"+res).classList.add('bg-danger');
+  document.getElementById("result").innerHTML="Attack detected";}
+</script>
+

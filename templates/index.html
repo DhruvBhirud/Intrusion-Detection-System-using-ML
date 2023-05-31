@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IDS with ML</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./static/images/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="./static/scripts/index.js"></script>
+
+  <style>
+    .form-control{
+      border:1px solid #0068d0;
+    }
+  </style>
+</head>
+<body  style="overflow:hidden">
+
+  <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #e3f2fd;">
+      <!-- Brand/logo -->
+      <ul class="navbar-nav mr-auto">
+       <li><a class="navbar-brand" href="/"><img src="./static/images/logo.png" alt="Logo" style="height:40px;"></a></li>
+      </ul>
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-right">
+        <li class="nav-item">
+          <a class="nav-link" href="/analysis">Preliminary Data Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Model Comparison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/features">Feature Descriptions</a>
+        </li>
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" id="Search">
+        </form>
+        <button class="btn btn-outline-success" onclick="find_text()">Search</button>
+      </ul>
+    </nav>
+
+    <br><br><br>
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+
+      <!-- Links -->
+        <ul class="navbar-nav" style="margin-left: 25%;font-size: larger">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Stimulate an input traffic by filling</a>
+          </li>
+          <form class="form-inline" id="myform" action="/submit" method="POST">
+            <input class="form-control mr-sm-2" type="text" id="traffic_type" name="traffic_type" style="display:none;">
+          </form>
+          <form class="form-inline">
+            <div class="dropdown show">
+              <a class="btn btn-info dropdown-toggle" href="#" role="button" id="choose_traffic_form" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:150px;">
+                Select
+              </a>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" onclick="choose_traffic('DoS');">Denial of Service (DoS)</a>
+                <a class="dropdown-item" onclick="choose_traffic('Probe');">Probe</a>
+                <a class="dropdown-item" onclick="choose_traffic('U2R');">User to Root(U2R)</a>
+                <a class="dropdown-item" onclick="choose_traffic('R2L');">Remote to Local (R2L)</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" onclick="choose_traffic('Normal');">Normal traffic</a>
+              </div>
+            </div>
+          </form>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Traffic features</a>
+          </li>
+        </ul>
+      </nav>
+
+    <!-- Main Form -->
+    <div class="container" style="margin-top:15px;">
+      <div class="card">
+          <div class="card-body" style="overflow-y:scroll;">
+            <form>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Duration</label>
+                  <input type="number" class="form-control" id="dur" placeholder="Length of time duration of the connection (0 - 54451)">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Protocol Type</label>
+                  <select class="form-control" id="prot" required="">
+                    <option disabled="" selected="">Protocol used in the connection</option>
+                    <option id="tcp">1. TCP</option>
+                    <option id="udp">2. UDP</option>
+                    <option id="icmp">3. ICMP</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Service</label>
+                  <input type="text" class="form-control" id="service" placeholder="Destination network service used">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Flag</label>
+                  <input type="text" class="form-control" id="flag" placeholder="Flag Type value type">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Src Bytes</label>
+                  <input type="number" class="form-control" id="srcbytes" placeholder="Number of data bytes transferred from source to dest">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Dstn Bytes</label>
+                  <input type="number" class="form-control" id="dstnbytes" placeholder="Number of data bytes transferred from dest to source">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Logged In</label>
+                  <select class="form-control" id="login_status" required="">
+                    <option disabled="" selected=""><span  style="color:#ccc">Login Status</span></option>
+                    <option id="out">0. Logged out</option>
+                    <option id="in">1. Logged in</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Wrong Fragment</label>
+                  <select class="form-control" id="wrong" required="">
+                    <option disabled="" selected="">Total number of wrong fragments in this connection</option>
+                    <option id="wrng0">0</option>
+                    <option id="wrng1">1</option>
+                    <option id="wrng2">2</option>
+                    <option id="wrng3">3</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Same Destn Count</label>
+                  <input type="number" min=0 max=511 class="form-control" id="count" placeholder="Number of connections to the same destination">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Same Port Count</label>
+                  <input type="number"  min=0 max=511 class="form-control" id="srv_count" placeholder="Number of connections to the same service (port number)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <button href="/" class="btn btn-warning" style="margin-left:37%;">Reset Form</button>
+                  <a class="btn btn-success" style="margin-left:30px;color:white;" onclick="submit_form()">Submit</a>
+                </div>
+              </div>
+            </form>
+            <p style="text-align:center;"><b>NOTE:</b> We've shown only selected features which have more significance, for other features visit: <a href="/features">Feature Descriptions</a></p>
+         </div>
+       </div>
+    </div>
+</body>
+</html>

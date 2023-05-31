@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+
+</style>
+<head>
+  <title>Feature Descriptions</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="./static/images/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <script type="text/javascript">
+    function find_text(){
+    var text = document.getElementById("Search").value;
+    console.log(text);
+    find(text);}
+  </script>
+
+  <style>
+    .card{
+      border:1px solid #0068d0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-light fixed-top" style="background-color: #e3f2fd;">
+    <!-- Brand/logo -->
+    <ul class="navbar-nav mr-auto">
+     <li><a class="navbar-brand" href="/"><img src="../static/images/logo.png" alt="Logo" style="height:40px;"></a></li>
+    </ul>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/">Stimulate Attack</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/features">Feature Descriptions</a>
+        </li>
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" id="Search">
+    </form>
+    <button class="btn btn-outline-success" onclick="find_text()">Search</button>
+    </ul>
+  </nav>
+
+<br /><br /><br /><br />
+
+  <h4 style="text-align:center;"> Preliminary Data Analysis</h4><br>
+
+
+  <div class="container"><div class="row">
+  <div class="card text-white bg-info" style="padding:10px;">
+    <div class="card-header">Data Description</div>
+    <div class="card-body">
+      <p class="card-text">The data set contain the records of the internet traffic seen by a simple intrusion detection network and are the ghosts of the traffic encountered by a real IDS and just the traces of its existence remains. The data set contains 43 features per record, with 41 of the features referring to the traffic input itself and the last two are labels (whether it is a normal or attack) and Score (the severity of the traffic input itself).</p>
+    </div>
+  </div></div></div>
+  <br/><br/>
+
+  <div class="container">
+
+     <div class="row">
+         <div class="card" style="width: 88rem;">
+
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-4">
+                    <p>Within the data set exists 4 different classes of attacks: Denial of Service (DoS), Probe, User to Root(U2R), and Remote to Local (R2L). A brief description of each attack can be seen below:</p>
+                    <p><b>DoS</b> is an attack that tries to shut down traffic flow to and from the target system.</p>
+                    <p><b>R2L</b> is an attack that tries to gain local access to a remote machine. An attacker tries to “hack” their way into the network.</p>
+                    <p><b>U2R</b> is an attack that starts off with a normal user account and tries to gain access to the system or network, as a super-user (root). </p>
+                    <p><b>Probe</b> or surveillance is an attack that tries to get information from a network. </p>
+                  </div>
+                  <div class="col-8">
+                        <canvas id="chartone">
+
+                        </canvas>
+                  </div>
+              </div>
+          </div>
+        </div>
+     </div>
+        <br /> <br />
+
+           <div class="row">
+             <div class="card" style="width: 88rem;">
+
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-8">
+                            <canvas id="charttwo">
+
+                            </canvas>
+                      </div>
+
+                      <div class="col-4">
+                        <p>Description is the pattern of narrative development that aims to make vivid a place, object, character, or group. Description is one of four rhetorical modes, along with exposition, argumentation, and narration. In practice it would be difficult to write literature that drew on just one of the four basic modes</p>
+                      </div>
+
+                  </div>
+              </div>
+             </div>
+            </div>
+
+      <br /><br />
+
+
+      <div class="row">
+         <div class="card" style="width: 88rem;">
+
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-4">
+                    <p>The features in a traffic record provide the information about the encounter with the traffic input by the IDS and can be broken down into four categories: Intrinsic, Content, Host-based, and Time-based.</p>
+                    <p>The feature types in this data set can be broken down into 4 types:<br><br>
+                          4 Categorical<br>
+                          6 Binary<br>
+                          23 Discrete<br>
+                          10 Continuous<br>
+                    </p>
+                  </div>
+                  <div class="col-8">
+                        <canvas id="chartthree">
+
+                        </canvas>
+                  </div>
+              </div>
+          </div>
+        </div>
+     </div>
+        <br /> <br />
+
+  </div>
+
+<script>
+        var ctx = document.getElementById('chartone').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'horizontalBar',
+
+            // The data for our dataset
+            data: {
+                labels: ['Normal', 'Dos Attack', 'Remote to Local Attack', 'User to Root Attack', 'Probe'],
+                datasets: [{
+                    label: 'Traffic Data Distribution Chart',
+                    backgroundColor: [
+                      'rgba(75, 192, 192, 0.4)',
+                      'rgba(54, 162, 235, 0.4)',
+                      'rgba(255, 206, 86, 0.4)',
+                      'rgba(255, 0, 0, 0.4)',
+                      'rgba(153, 102, 255, 0.4)',
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 0, 0, 1)',
+                        'rgba(153, 102, 255, 1)'
+                      ],
+                    data: [9710,7636,2709,67,2421]
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+
+         var ctx = document.getElementById('charttwo').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+
+        var ctx = document.getElementById('chartthree').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+
+            // The data for our dataset
+            data: {
+                labels: ['Categorical', 'Binary', 'Discrete', 'Continuous'],
+                datasets: [{
+                    data: [4, 6, 23, 10],
+                    backgroundColor: [
+                      'rgba(75, 192, 192, 0.4)',
+                      'rgba(54, 162, 235, 0.4)',
+                      'rgba(255, 206, 86, 0.4)',
+                      'rgba(255, 0, 0, 0.4)'
+                    ]
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+</script>
+</body>
+</html>
