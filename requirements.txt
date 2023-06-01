@@ -3,3 +3,6 @@ Jinja2==3.0.1
 Werkzeug==2.0.1
 pandas
 scikit-learn
+gunicorn
+psycopg2
+freeze
