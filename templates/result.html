@@ -116,28 +116,5 @@ else{
   document.getElementById("rnd_frst_"+res).classList.remove('bg-warning');
   document.getElementById("rnd_frst_"+res).classList.add('bg-danger');
   document.getElementById("result").innerHTML="Attack detected";}
-<<<<<<< HEAD
-
-// SVM
-// var jsvm = JSON.parse('{{ dictsvm | tojson | safe}}');
-// document.getElementById("exp").innerHTML=jsvm["expected"];
-// var attacks = ["normal","dos","r2l","u2r","probe"];
-// for(var i = 0; i < 5; i++) {
-//   document.getElementById("lsvm_frst_"+attacks[i]).innerHTML=jsvm[attacks[i]]+"%";
-//   document.getElementById("lsvm_frst_"+attacks[i]).style.width=jsvm[attacks[i]]+"%";
-// }
-
-// var resvm = jsvm["predictionssvm"];
-
-// if(resvm=="normal"){
-//   document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
-//   document.getElementById("lsvm_frst_"+resvm).classList.add('bg-success');
-//   document.getElementById("result").innerHTML="Normal Traffic";}
-// else{
-//   document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
-//   document.getElementById("lsvm_frst_"+resvm).classList.add('bg-danger');
-//   document.getElementById("result").innerHTML="Attack detected";}
-=======
->>>>>>> parent of ca2dc88 (Updated SVM model and implementation)
 </script>
 

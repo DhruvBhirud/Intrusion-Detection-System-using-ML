@@ -26,8 +26,9 @@ for row in data:
 
 
 # load the trained model from disk
-rf = "random_forest_model.sav"
-random_forest_model = pickle.load(open(rf, 'rb'))
+filename = "random_forest_model.sav"
+random_forest_model = pickle.load(open(filename, 'rb'))
+
 
 def main(class_name):
     if class_name=="normal":
