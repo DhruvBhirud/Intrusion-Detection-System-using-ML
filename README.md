@@ -1,6 +1,6 @@
 # Intrusion-Detection-using-ML
 Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
-#Contributors:<br/>
+# Contributors:<br/>
 &nbsp;  &nbsp;  **1.** [Vaishnavi Powar](https://github.com/GaLaCtO-NaMiKaZe)<br/>
 &nbsp;  &nbsp;  **2.** [Ariful Hauqe Mollah](https://github.com/powar02vaishnavi)<br/>
 
