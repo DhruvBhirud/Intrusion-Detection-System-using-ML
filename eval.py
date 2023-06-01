@@ -28,8 +28,8 @@ for row in data:
 # load the trained model from disk
 rf = "random_forest_model.sav"
 random_forest_model = pickle.load(open(rf, 'rb'))
-svm = "Linear_SVM_model.sav"
-svm_model = pickle.load(open(svm, 'rb'))
+# svm = "Linear_SVM_model.sav"
+# svm_model = pickle.load(open(svm, 'rb'))
 
 def main(class_name):
     if class_name=="normal":
