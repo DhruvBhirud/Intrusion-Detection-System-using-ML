@@ -51,14 +51,8 @@ def main(class_name):
     predictions = random_forest_model.predict(test)
     probabilities = random_forest_model.predict_proba(test)
     probabilities = probabilities[0]
-    predictionssvm = svm_model.predict(test)
-    probabilitiessvm = svm_model.predict_proba(test)
-    probabilitiessvm = probabilitiessvm[0]
     for i in range(5):
         probabilities[i] = "{:.2f}".format(probabilities[i]*100)
     print(predictions[0], list(probabilities))
-    for i in range(5):
-        probabilitiessvm[i] = "{:.2f}".format(probabilitiessvm[i]*100)
-    print(predictionssvm[0], list(probabilitiessvm))
-    return(predictions[0], list(probabilities), predictionssvm[0], list(probabilitiessvm))
+    return(predictions[0], list(probabilities))
 
