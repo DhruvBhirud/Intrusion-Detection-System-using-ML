@@ -19,6 +19,6 @@ Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
 You need Flask installed before running the server.<br/>
 Steps for starting server.
 ```
-$ export FLASK_APP=server.py
+$ export FLASK_APP=app.py
 $ python -m flask run
 ```
