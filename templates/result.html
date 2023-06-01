@@ -119,23 +119,23 @@ else{
   document.getElementById("result").innerHTML="Attack detected";}
 
 // SVM
-var jsvm = JSON.parse('{{ dictsvm | tojson | safe}}');
-document.getElementById("exp").innerHTML=jsvm["expected"];
-var attacks = ["normal","dos","r2l","u2r","probe"];
-for(var i = 0; i < 5; i++) {
-  document.getElementById("lsvm_frst_"+attacks[i]).innerHTML=jsvm[attacks[i]]+"%";
-  document.getElementById("lsvm_frst_"+attacks[i]).style.width=jsvm[attacks[i]]+"%";
-}
+// var jsvm = JSON.parse('{{ dictsvm | tojson | safe}}');
+// document.getElementById("exp").innerHTML=jsvm["expected"];
+// var attacks = ["normal","dos","r2l","u2r","probe"];
+// for(var i = 0; i < 5; i++) {
+//   document.getElementById("lsvm_frst_"+attacks[i]).innerHTML=jsvm[attacks[i]]+"%";
+//   document.getElementById("lsvm_frst_"+attacks[i]).style.width=jsvm[attacks[i]]+"%";
+// }
 
-var resvm = jsvm["predictionssvm"];
+// var resvm = jsvm["predictionssvm"];
 
-if(resvm=="normal"){
-  document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
-  document.getElementById("lsvm_frst_"+resvm).classList.add('bg-success');
-  document.getElementById("result").innerHTML="Normal Traffic";}
-else{
-  document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
-  document.getElementById("lsvm_frst_"+resvm).classList.add('bg-danger');
-  document.getElementById("result").innerHTML="Attack detected";}
+// if(resvm=="normal"){
+//   document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
+//   document.getElementById("lsvm_frst_"+resvm).classList.add('bg-success');
+//   document.getElementById("result").innerHTML="Normal Traffic";}
+// else{
+//   document.getElementById("lsvm_frst_"+resvm).classList.remove('bg-warning');
+//   document.getElementById("lsvm_frst_"+resvm).classList.add('bg-danger');
+//   document.getElementById("result").innerHTML="Attack detected";}
 </script>
 
