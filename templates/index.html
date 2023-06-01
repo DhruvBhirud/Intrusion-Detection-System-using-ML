@@ -54,7 +54,7 @@
       <!-- Links -->
         <ul class="navbar-nav" style="margin-left: 25%;font-size: larger">
           <li class="nav-item">
-            <a class="nav-link" href="#">Stimulate an input traffic by filling</a>
+            <a class="nav-link" href="#">Stimulate an input traffic</a>
           </li>
           <form class="form-inline" id="myform" action="/submit" method="POST">
             <input class="form-control mr-sm-2" type="text" id="traffic_type" name="traffic_type" style="display:none;">
@@ -96,9 +96,9 @@
                   <label>Protocol Type</label>
                   <select class="form-control" id="prot" required="">
                     <option disabled="" selected="">Protocol used in the connection</option>
-                    <option id="tcp">1. TCP</option>
-                    <option id="udp">2. UDP</option>
-                    <option id="icmp">3. ICMP</option>
+                    <option id="tcp">TCP</option>
+                    <option id="udp">UDP</option>
+                    <option id="icmp">ICMP</option>
                   </select>
                 </div>
               </div>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label>Flag</label>
-                  <input type="text" class="form-control" id="flag" placeholder="Flag Type value type">
+                  <input type="text" class="form-control" id="flag" placeholder="Flag Type">
                 </div>
               </div>
 
@@ -164,7 +164,7 @@
                 </div>
               </div>
             </form>
-            <p style="text-align:center;"><b>NOTE:</b> We've shown only selected features which have more significance, for other features visit: <a href="/features">Feature Descriptions</a></p>
+            <p style="text-align:center;"><b>NOTE:</b> Only significant features are selected here, for other features visit: <a href="/features">Feature Descriptions</a></p>
          </div>
        </div>
     </div>
