@@ -5,4 +5,3 @@ pandas
 scikit-learn
 gunicorn
 psycopg2
-freeze
