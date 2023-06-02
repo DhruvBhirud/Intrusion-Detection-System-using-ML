@@ -1,8 +1,8 @@
 # Intrusion-Detection-using-ML
 Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
 # Contributors:<br/>
-&nbsp;  &nbsp;  **1.** [Vaishnavi Powar](https://github.com/GaLaCtO-NaMiKaZe)<br/>
-&nbsp;  &nbsp;  **2.** [Ariful Hauqe Mollah](https://github.com/powar02vaishnavi)<br/>
+&nbsp;  &nbsp;  **1.** [Vaishnavi Powar](https://github.com/powar02vaishnavi)<br/>
+&nbsp;  &nbsp;  **2.** [Ariful Hauqe Mollah](https://github.com/GaLaCtO-NaMiKaZe)<br/>
 
 ## **Problem Statement:** <br/>
 **Intrusion-Detection-using-ML**: The aim of the project is to train model for Intrusion Detection task.
@@ -17,6 +17,10 @@ Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
 
 ## Setup
 You need Flask installed before running the server.<br/>
+To install requirements, run the following command.
+```
+$ pip install -r requirements.txt
+```
 Steps for starting server.
 ```
 $ export FLASK_APP=app.py
