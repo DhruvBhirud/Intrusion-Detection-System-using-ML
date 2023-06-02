@@ -33,10 +33,11 @@ def submit():
         attacks = ["normal","dos","r2l","u2r","probe"]
         if type not in attacks:
             return render_template("index.html")
-        pred, prob = main(type)
+        pred, prob, predsvm, probsvm = main(type)
 
         dict = {"expected":expected,"predictions":attacks[pred], "normal":prob[0], "dos":prob[1], "u2r":prob[3], "r2l":prob[2], "probe":prob[4]}
-        return render_template("result.html",dict=dict)
+        dictsvm = {"expected":expected,"predictions":attacks[predsvm], "normal":probsvm[0], "dos":probsvm[1], "u2r":probsvm[3], "r2l":probsvm[2], "probe":probsvm[4]}
+        return render_template("result.html",dict=dict,dictsvm=dictsvm)
 
 
 # Commands to run
