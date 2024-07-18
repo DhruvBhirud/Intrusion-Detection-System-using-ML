@@ -7,9 +7,9 @@ Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
   <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" />
 </a>
 <br>
-&nbsp;  &nbsp;  **1.** <img src="https://contrib.rocks/image?repo=DhruvBhirud/Intrusion-Detection-System-using-ML" /> [Dhruv Bhirud](https://github.com/DhruvBhirud)<br/>
+<!-- &nbsp;  &nbsp;  **1.** <img src="https://contrib.rocks/image?repo=DhruvBhirud/Intrusion-Detection-System-using-ML" /> [Dhruv Bhirud](https://github.com/DhruvBhirud)<br/>
 &nbsp;  &nbsp;  **2.** <img src="https://contrib.rocks/image?repo=powar02vaishnavi/IntrusionDetectionSystem" /> [Vaishnavi Powar](https://github.com/powar02vaishnavi)<br/>
-&nbsp;  &nbsp;  **3.** <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" /> [Ariful Hauqe Mollah](https://github.com/GaLaCtO-NaMiKaZe)<br/>
+&nbsp;  &nbsp;  **3.** <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" /> [Ariful Hauqe Mollah](https://github.com/GaLaCtO-NaMiKaZe)<br/> -->
 
 ## **Problem Statement:** <br/>
 **Intrusion-Detection-using-ML**: The aim of the project is to train model for Intrusion Detection task.
