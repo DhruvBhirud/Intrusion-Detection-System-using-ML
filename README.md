@@ -1,6 +1,11 @@
 # Intrusion-Detection-using-ML
 Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
 # Contributors:<br/>
+<a href="https://github.com/DhruvBhirud/Intrusion-Detection-System-using-ML/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=DhruvBhirud/Intrusion-Detection-System-using-ML" />
+  <img src="https://contrib.rocks/image?repo=powar02vaishnavi/IntrusionDetectionSystem" />
+  <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" />
+</a>
 &nbsp;  &nbsp;  **1.** <img src="https://contrib.rocks/image?repo=DhruvBhirud/Intrusion-Detection-System-using-ML" /> [Dhruv Bhirud](https://github.com/DhruvBhirud)<br/>
 &nbsp;  &nbsp;  **2.** <img src="https://contrib.rocks/image?repo=powar02vaishnavi/IntrusionDetectionSystem" /> [Vaishnavi Powar](https://github.com/powar02vaishnavi)<br/>
 &nbsp;  &nbsp;  **3.** <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" /> [Ariful Hauqe Mollah](https://github.com/GaLaCtO-NaMiKaZe)<br/>
