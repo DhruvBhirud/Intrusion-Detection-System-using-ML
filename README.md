@@ -4,10 +4,10 @@ Project Idea: Making an Intrusion Detection using Machine Learning<br/><br/>
 <a href="https://github.com/DhruvBhirud/Intrusion-Detection-System-using-ML/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=DhruvBhirud/Intrusion-Detection-System-using-ML" />
 </a>
-<a href="https://github.com/powar02vaishnavi/IntrusionDetectionSystem/graphs/contributors">
+<a href="https://github.com/powar02vaishnavi/IntrusionDetectionSystem/">
   <img src="https://contrib.rocks/image?repo=powar02vaishnavi/IntrusionDetectionSystem" />
 </a>
-<a href="https://github.com/GaLaCtO-NaMiKaZe/Intrusion-Detection-System/graphs/contributors">
+<a href="https://github.com/GaLaCtO-NaMiKaZe/Intrusion-Detection-System/">
   <img src="https://contrib.rocks/image?repo=GaLaCtO-NaMiKaZe/Intrusion-Detection-System" />
 </a>
 <br>
